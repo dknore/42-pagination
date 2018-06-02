@@ -3,7 +3,7 @@ import {
   BrowserRouter,
   Route,
   Link
-} from 'react-browser-router';
+} from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
 class HomePage extends Component {
@@ -11,6 +11,7 @@ class HomePage extends Component {
     return <Fragment>
       <h1>My App</h1>
       <p>Paragraph</p>
+      <Link to="/other">Other Page</Link>
     </Fragment>;
   }
 }
@@ -20,6 +21,7 @@ class OtherPage extends Component {
     return <Fragment>
       <h1>Other Page</h1>
       <p>Paragraph on other page..</p>
+      <Link to="/">Home</Link>
     </Fragment>;
   }
 }
@@ -27,8 +29,10 @@ class OtherPage extends Component {
 class App extends Component {
   render() {
     return <BrowserRouter>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/" component={OtherPage} />
+      <Fragment>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/other" component={OtherPage} />
+      </Fragment>
     </BrowserRouter>;
   }
 }

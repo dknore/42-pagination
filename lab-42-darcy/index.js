@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGODB_URI);
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/api/data', (req, res) => {
   res.send({data: [12, 3]});
 });
 

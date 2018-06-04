@@ -6,12 +6,15 @@ import {
 } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
+import RestaurantList from './components/RestaurantList.js';
+
 class HomePage extends Component {
   render() {
     return <Fragment>
       <h1>My App</h1>
       <p>Paragraph</p>
-      <Link to="/other">Other Page</Link>
+      <p><Link to="/other">Other Page</Link></p>
+      <p><Link to="/restaurants">Restaurants</Link></p>
     </Fragment>;
   }
 }
@@ -21,7 +24,8 @@ class OtherPage extends Component {
     return <Fragment>
       <h1>Other Page</h1>
       <p>Paragraph on other page..</p>
-      <Link to="/">Home</Link>
+      <p><Link to="/">Home</Link></p>
+      <p><Link to="/restaurants">Restaurants</Link></p>
     </Fragment>;
   }
 }
@@ -32,6 +36,7 @@ class App extends Component {
       <Fragment>
         <Route exact path="/" component={HomePage} />
         <Route path="/other" component={OtherPage} />
+        <Route path="/restaurants" component={RestaurantList} />
       </Fragment>
     </BrowserRouter>;
   }
